@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bad-to-the-bone-container">
+        <audio id="bad-to-the-bone">
+            <source src="bad-to-the-bone.mp3">
+        </audio>
+        <button onclick="playSound()">Play Sound</button>
+        <button onclick="stopSound()">Stop Sound</button>
+        <div>
+            Maximum time between breaks (seconds):
+            <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
