@@ -6,25 +6,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="bad-to-the-bone-container">
-        <audio id="bad-to-the-bone">
-            <source src="bad-to-the-bone.mp3">
-        </audio>
-        <button onclick="playSound()">Play Sound</button>
-        <button onclick="stopSound()">Stop Sound</button>
-        <div>
-            Maximum time between breaks (seconds):
-            <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
-        </div>
-    </div>
-    <script src="main.js"></script>
+    <header>
+        <h1>Silence Occasionally Broken By</h1>
+        <p>
+    </header>
+    <main>
+        <section id="intro">
+            A website made on a whim after watching a <a href="https://twitch.tv/lamce_">stream</a> with one of those silly, "1 hour of silence occasionally broken up by x" videos.
+        </p>
+        </section>
+        <section id="bad-to-the-bone-container" class="sound">
+            <h2>Bad To The Bone Riff</h2>
+            <audio id="bad-to-the-bone">
+                <source src="bad-to-the-bone.mp3">
+            </audio>
+            <button onclick="playSound()">Play Sound</button>
+            <button onclick="stopSound()">Stop Sound</button>
+            <div>
+                Maximum time between breaks (seconds):
+                <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
+            </div>
+        </section>
 
-    <div id="custom-container">
-        <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
-        <button onclick="playCustomSound()">Play Sound</button>
-        <button onclick="stopCustomSound()">Stop Sound</button>
-        <audio id="customPlayer" controls=""></audio>
-        <input type="number" id="custom-break-time" min="0" max="3600">
-    </div>
+        <section id="custom-container"  class="sound">
+            <h2>Custom Audio</h2>
+            <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
+
+            <audio id="customPlayer"></audio>
+            <button onclick="playCustomSound()">Play Sound</button>
+            <button onclick="stopCustomSound()">Stop Sound</button>
+            <div>
+                Maximum time between breaks (seconds):
+                <input type="number" id="custom-break-time" min="0" max="3600">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>What's up Giggle Gang?</p>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>

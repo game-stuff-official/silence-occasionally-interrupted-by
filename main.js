@@ -12,6 +12,7 @@ function playSound(){
     document.getElementById("bad-to-the-bone-container").classList.add("active");
     myAudioElementId = setTimeout(function(){
         myAudioElement.play();
+        stopSound();
         playSound();
     }, breakTime);
 
