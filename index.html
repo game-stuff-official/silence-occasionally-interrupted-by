@@ -18,5 +18,13 @@
         </div>
     </div>
     <script src="main.js"></script>
+
+    <div id="custom-container">
+        <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
+        <button onclick="playCustomSound()">Play Sound</button>
+        <button onclick="stopCustomSound()">Stop Sound</button>
+        <audio id="customPlayer" controls=""></audio>
+        <input type="number" id="custom-break-time" min="0" max="3600">
+    </div>
 </body>
 </html>
