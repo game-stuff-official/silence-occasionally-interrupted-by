@@ -8,63 +8,76 @@
 <body>
     <header>
         <h1>Silence Occasionally Broken By</h1>
-        <p>
     </header>
     <main>
         <section id="intro">
+        <p>
             A website made on a whim after watching a <a href="https://twitch.tv/lamce_">stream</a> with one of those silly, "1 hour of silence occasionally broken up by x" videos playing in the background.
         </p>
+        <h3>How To Use</h3>
+        <p>Press Play Sound to start the player. The sound will repeat indefinetly until you press Stop Sound.</p>
+        <p>The number input is the interval between plays.</p>
+        <p>Check Random Playback to have the sound play in random intervals between 0 and the entered number.</p>
         </section>
         <section id="bad-to-the-bone-container" class="sound">
             <h2>Bad To The Bone Riff</h2>
             <audio id="bad-to-the-bone-player">
                 <source src="bad-to-the-bone.mp3">
             </audio>
-            <button onclick="badToTheBone.playSound()">Play Sound</button>
-            <button onclick="badToTheBone.stopSound()">Stop Sound</button>
-            <div>
-                Maximum time between breaks (seconds):
+            <p>
+                <button onclick="badToTheBone.playSound()">Play Sound</button>
+                <button onclick="badToTheBone.stopSound()">Stop Sound</button>
+            </p>
+            <p>
+            Maximum time between breaks (seconds):
                 <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
-                
-                <p>
-                    Random Playback
-                    <input type="checkbox" id="bad-to-the-bone-random">
-                </p>
-            </div>
+            </p>
+            <p>
+                Random Playback
+                <input type="checkbox" id="bad-to-the-bone-random">
+            </p>
         </section>
         <section id="metal-pipe-container" class="sound">
             <h2>Metal Pipe</h2>
             <audio id="metal-pipe-player">
                 <source src="metal-pipe.mp3">
             </audio>
-            <button id="metal-pipe-play" onclick="pipe.playSound()">Play Sound</button>
-            <button id="metal-pipe-stop" onclick="pipe.stopSound()">Stop Sound</button>
-            <div>
+            <p>
+                <button id="metal-pipe-play" onclick="pipe.playSound()">Play Sound</button>
+                <button id="metal-pipe-stop" onclick="pipe.stopSound()">Stop Sound</button>
+            </p>
+            <p>
                 Maximum time between breaks (seconds):
                 <input type="number" id="metal-pipe-break-time" min="0" max="3600">
-                
-                <p>
-                    Random Playback
-                    <input type="checkbox" id="metal-pipe-random">
-                </p>
-            </div>
+            </p>
+            <p>
+                Random Playback
+                <input type="checkbox" id="metal-pipe-random">
+            </p>
         </section>
         <section id="custom-container"  class="sound">
             <h2>Custom Audio</h2>
-            <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
 
             <audio id="customPlayer"></audio>
-            <button onclick="playCustomSound()">Play Sound</button>
-            <button onclick="stopCustomSound()">Stop Sound</button>
-            <div>
+            
+            <p>
+                <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
+            </p>
+            
+            <p>
+                <button onclick="playCustomSound()">Play Sound</button>
+                <button onclick="stopCustomSound()">Stop Sound</button>
+            </p>
+            
+            <p>
                 Maximum time between breaks (seconds):
                 <input type="number" id="custom-break-time" min="0" max="3600">
-                
-                <p>
-                    Random Playback
-                    <input type="checkbox" id="custom-random">
-                </p>
-            </div>
+            </p>
+            <p>
+                Random Playback
+                <input type="checkbox" id="custom-random">
+            </p>
+
         </section>
     </main>
 

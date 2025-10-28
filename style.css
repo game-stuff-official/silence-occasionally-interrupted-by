@@ -1,18 +1,24 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+:root{
+    --button-border: 10px;
+}
 body{
     margin-left: 0px;
+    background-color: #f0f0f0;
 }
-.active{
-    background-color: eeffee;
+h3, h1{
+    padding-left: 3%;
+    border-left-color: #9999ff;
+    border-left-style: solid;
+    border-left-width: 7px;
 }
 header, footer{
     margin: 20px;
 }
 section{
     padding: 20px;
-
 }
 section.sound{
     border-left-style: solid;
@@ -20,24 +26,89 @@ section.sound{
     border-left-color: #9999ff;
     margin-left: 0px;
     transition-duration: 500ms;
+    display:inline-block;
+    width: 400px;
 }
 section.sound.active{
     border-color: #99ff99;
+    box-shadow: 0px 0px 5px 0px #ffffff;
 }
 section.sound:hover{
     border-left-color: #6666ff;
+    background-color: #ffffff;
 }
 section.active:hover{
-    border-left-color: #77ff77;
+    border-left-color: #88ff88;
 }
 section.sound > h2{
-    transition-duration: 500ms;
+    transition-duration: 250ms;
     margin-left: 20px;
 }
 section.sound:hover > h2{
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 button{
+    border-width: 2px;
+    border-style: solid;
+    border-top-left-radius: var(--button-border);
+    border-bottom-left-radius: var(--button-border);
+    padding:8px;
+    border-right-style: none;
+    box-shadow: 0px var(--button-border) 0px 0px #999999;
+    transition-duration: 200ms;
+    border-top-right-radius: var(--button-border);
+
+}
+button + button{
+    transform: translate(-5px, var(--button-border));
+    box-shadow: 0px 0px 0px 0px #999999;
+
+    border-right-style: solid;
+    border-left-style: none;
+
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: var(--button-border);
+
+    border-top-right-radius: var(--button-border);
+    border-bottom-right-radius: var(--button-border);
+    
+}
+button:hover, input[type=file]::file-selector-button:hover{
+    background-color: #ccccff;
+}
+button:active, section.active button{
+    /* background-color: #a9a9ff; */
+    transform: translate(0px, var(--button-border));
+    box-shadow: 0px 0px 0px 0px #999999;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: var(--button-border);
+    border-bottom-left-radius: var(--button-border);
+
+}
+button + button:active{
+    transform: translate(-5px, var(--button-border)) !important;
+    box-shadow: 0px 0px 0px 0px #999999 !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: var(--button-border) !important;
+    border-bottom-left-radius: var(--button-border) !important;
+}
+section.active button + button{
+    transform: translate(-5px, 0px);
+    box-shadow: 0px var(--button-border) 0px 0px #999999;
+    border-top-right-radius: var(--button-border);
+    border-top-left-radius: var(--button-border);
+    border-bottom-left-radius: 0px;
+}
+
+input[type=number]{
     border-radius: 5px;
     border-width: 2px;
+    border-style: solid;
+    padding:5px;
+}
+input[type=file]::file-selector-button{
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    padding:5px;
 }
