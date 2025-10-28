@@ -1,30 +1,53 @@
-// let playbackTime = 10000
-let myAudioElement = document.getElementById('bad-to-the-bone');
-let myAudioElementId;
+class Sound{
+    constructor(elementSuffix){
+        this.elementSuffix = elementSuffix;
+        this.timeoutId = 0;
+        // this.randomized = document.getElementById(elementSuffix + "-random").checked;
+        // this.breakTime = document.getElementById(elementSuffix + "-break-time").value * 1000;
+        this.player = document.getElementById(elementSuffix + "-player");
+        this.container = document.getElementById(elementSuffix + "-container");
+    }
+    get randomized(){
+        return document.getElementById(this.elementSuffix + "-random").checked;
+    }
+    get breakTime(){
+        if(this.randomized){
+            return document.getElementById(this.elementSuffix + "-break-time").value * 1000 * Math.random();
+        }else{
+            return document.getElementById(this.elementSuffix + "-break-time").value * 1000;
+        }
+    }
+    play(){
+        this.player.play();
+    }
+    playSound(){
+        console.log("Attempting to play sound.");
+        this.container.classList.add("active");
+
+        let THAT = this;
+        this.timeoutId = setTimeout(function(that = THAT){
+            console.log(that);
+            that.player.play();
+            // that.stopSound();
+            that.playSound();
+        }, THAT.breakTime)
+    }
+    stopSound(){
+        document.getElementById(this.elementSuffix + "-container").classList.remove("active");
+        clearTimeout(this.timeoutId);
+    }
+}
+let pipe = new Sound("metal-pipe");
+// pipe.playSound();
+
+let badToTheBone = new Sound("bad-to-the-bone");
+
+
 let customAudioElementId;
+let customAudioRandomized = false;
 
 let customFile;
 let customPlayer = document.getElementById("customPlayer");
-
-function playSound(){
-    let breakTime = document.getElementById("bad-to-the-bone-break-time").value * 1000;
-    breakTime *= Math.random();
-    document.getElementById("bad-to-the-bone-container").classList.add("active");
-    myAudioElementId = setTimeout(function(){
-        myAudioElement.play();
-        stopSound();
-        playSound();
-    }, breakTime);
-
-    // myAudioElement.play();
-    // myAudioElement.pause();
-    // myAudioElement.volume = 0.5;
-}
-
-function stopSound(){
-    document.getElementById("bad-to-the-bone-container").classList.remove("active");
-    clearTimeout(myAudioElementId);
-}
 
 function updateCustomPlayer() {
     customFile = document.getElementById("customFile").files[0];
@@ -33,17 +56,17 @@ function updateCustomPlayer() {
 }
 
 function playCustomSound(){
+    customAudioRandomized = document.getElementById("custom-random").checked;
     let breakTime = document.getElementById("custom-break-time").value * 1000;
-    breakTime *= Math.random();
+    if(customAudioRandomized){
+        breakTime *= Math.random();
+    }
     document.getElementById("custom-container").classList.add("active");
     customAudioElementId = setTimeout(function(){
         customPlayer.play();
+        stopCustomSound();
         playCustomSound();
     }, breakTime);
-
-    // myAudioElement.play();
-    // myAudioElement.pause();
-    // myAudioElement.volume = 0.5;
 }
 
 function stopCustomSound(){
