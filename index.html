@@ -19,66 +19,92 @@
         <p>The number input is the interval between plays.</p>
         <p>Check Random Playback to have the sound play in random intervals between 0 and the entered number.</p>
         </section>
-        <section id="bad-to-the-bone-container" class="sound">
-            <h2>Bad To The Bone Riff</h2>
-            <audio id="bad-to-the-bone-player">
-                <source src="bad-to-the-bone.mp3">
-            </audio>
-            <p>
-                <button onclick="badToTheBone.playSound()">Play Sound</button>
-                <button onclick="badToTheBone.stopSound()">Stop Sound</button>
-            </p>
-            <p>
-            Maximum time between breaks (seconds):
-                <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
-            </p>
-            <p>
-                Random Playback
-                <input type="checkbox" id="bad-to-the-bone-random">
-            </p>
-        </section>
-        <section id="metal-pipe-container" class="sound">
-            <h2>Metal Pipe</h2>
-            <audio id="metal-pipe-player">
-                <source src="metal-pipe.mp3">
-            </audio>
-            <p>
-                <button id="metal-pipe-play" onclick="pipe.playSound()">Play Sound</button>
-                <button id="metal-pipe-stop" onclick="pipe.stopSound()">Stop Sound</button>
-            </p>
-            <p>
+        <div class="flexbox-container">
+            <section id="bad-to-the-bone-container" class="sound">
+                <h2>Bad To The Bone Riff</h2>
+                <audio id="bad-to-the-bone-player">
+                    <source src="bad-to-the-bone.mp3">
+                </audio>
+                <p>
+                    <!-- <button onclick="badToTheBone.playSound()" id="bad-to-the-bone-play">Play Sound</button>
+                    <button onclick="badToTheBone.stopSound()" id="bad-to-the-bone-stop">Stop Sound</button> -->
+                    <button id="bad-to-the-bone-play">Play Sound</button>
+                    <button id="bad-to-the-bone-stop">Stop Sound</button>
+                </p>
+                <p>
                 Maximum time between breaks (seconds):
-                <input type="number" id="metal-pipe-break-time" min="0" max="3600">
-            </p>
-            <p>
-                Random Playback
-                <input type="checkbox" id="metal-pipe-random">
-            </p>
-        </section>
-        <section id="custom-container"  class="sound">
-            <h2>Custom Audio</h2>
+                    <input type="number" id="bad-to-the-bone-break-time" min="0" max="3600">
+                </p>
+                <p>
+                    Random Playback
+                    <input type="checkbox" id="bad-to-the-bone-random">
+                </p>
+            </section>
+            <section id="metal-pipe-container" class="sound">
+                <h2>Metal Pipe</h2>
+                <audio id="metal-pipe-player">
+                    <source src="metal-pipe.mp3">
+                </audio>
+                <p>
+                    <button id="metal-pipe-play">Play Sound</button>
+                    <button id="metal-pipe-stop">Stop Sound</button>
+                </p>
+                <p>
+                    Maximum time between breaks (seconds):
+                    <input type="number" id="metal-pipe-break-time" min="0" max="3600">
+                </p>
+                <p>
+                    Random Playback
+                    <input type="checkbox" id="metal-pipe-random">
+                </p>
+            </section>
+            <!-- <section id="custom-container"  class="sound">
+                <h2>Custom Audio</h2>
 
-            <audio id="customPlayer"></audio>
-            
-            <p>
-                <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
-            </p>
-            
-            <p>
-                <button onclick="playCustomSound()">Play Sound</button>
-                <button onclick="stopCustomSound()">Stop Sound</button>
-            </p>
-            
-            <p>
-                Maximum time between breaks (seconds):
-                <input type="number" id="custom-break-time" min="0" max="3600">
-            </p>
-            <p>
-                Random Playback
-                <input type="checkbox" id="custom-random">
-            </p>
+                <audio id="customPlayer"></audio>
+                
+                <p>
+                    <input type="file" id="customFile" accept="audio/*" onchange="updateCustomPlayer()">
+                </p>
+                
+                <p>
+                    <button onclick="playCustomSound()">Play Sound</button>
+                    <button onclick="stopCustomSound()">Stop Sound</button>
+                </p>
+                
+                <p>
+                    Maximum time between breaks (seconds):
+                    <input type="number" id="custom-break-time" min="0" max="3600">
+                </p>
+                <p>
+                    Random Playback
+                    <input type="checkbox" id="custom-random">
+                </p>
+            </section> -->
+            <section id="custom1-container"  class="sound">
+                <h2>Custom Audio</h2>
 
-        </section>
+                <audio id="custom1-player"></audio>
+                
+                <p>
+                    <input type="file" id="custom1-file-upload" accept="audio/*">
+                </p>
+                
+                <p>
+                    <button id="custom1-play">Play Sound</button>
+                    <button id="custom1-stop">Stop Sound</button>
+                </p>
+                
+                <p>
+                    Maximum time between breaks (seconds):
+                    <input type="number" id="custom1-break-time" min="0" max="3600">
+                </p>
+                <p>
+                    Random Playback
+                    <input type="checkbox" id="custom1-random">
+                </p>
+            </section>
+        </div>
     </main>
 
     <footer>

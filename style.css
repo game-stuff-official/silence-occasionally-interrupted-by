@@ -27,7 +27,7 @@ section.sound{
     margin-left: 0px;
     transition-duration: 500ms;
     display:inline-block;
-    width: 400px;
+    /* width: 400px; */
 }
 section.sound.active{
     border-color: #99ff99;
@@ -111,4 +111,13 @@ input[type=file]::file-selector-button{
     border-width: 2px;
     border-style: solid;
     padding:5px;
+}
+
+.flexbox-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flexbox-container > *{
+    flex-grow: 1;
+    flex-basis: 395px;
 }
