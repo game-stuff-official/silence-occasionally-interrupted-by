@@ -1,3 +1,4 @@
+<!--todo add furries kissing-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,9 +26,7 @@
                 <audio id="bad-to-the-bone-player">
                     <source src="bad-to-the-bone.mp3">
                 </audio>
-                <p>
-                    <!-- <button onclick="badToTheBone.playSound()" id="bad-to-the-bone-play">Play Sound</button>
-                    <button onclick="badToTheBone.stopSound()" id="bad-to-the-bone-stop">Stop Sound</button> -->
+                <p class="button-group">
                     <button id="bad-to-the-bone-play">Play Sound</button>
                     <button id="bad-to-the-bone-stop">Stop Sound</button>
                 </p>
@@ -45,7 +44,7 @@
                 <audio id="metal-pipe-player">
                     <source src="metal-pipe.mp3">
                 </audio>
-                <p>
+                <p class="button-group">
                     <button id="metal-pipe-play">Play Sound</button>
                     <button id="metal-pipe-stop">Stop Sound</button>
                 </p>
@@ -87,14 +86,13 @@
                 <audio id="custom1-player"></audio>
                 
                 <p>
-                    <input type="file" id="custom1-file-upload" accept="audio/*">
+                    <input type="file" id="custom1-file-upload" accept="audio/*" multiple>
                 </p>
                 
-                <p>
+                <p class="button-group">
                     <button id="custom1-play">Play Sound</button>
                     <button id="custom1-stop">Stop Sound</button>
                 </p>
-                
                 <p>
                     Maximum time between breaks (seconds):
                     <input type="number" id="custom1-break-time" min="0" max="3600">

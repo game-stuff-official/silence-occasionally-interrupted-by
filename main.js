@@ -4,7 +4,7 @@ class Sound{
         this.elementSuffix = elementSuffix;
         this.timeoutId = 0;
         // this.randomized = document.getElementById(elementSuffix + "-random").checked;
-        // this.breakTime = document.getElementById(elementSuffix + "-break-time").value * 1000;
+        this.breakTimeElement = document.getElementById(elementSuffix + "-break-time");
         this.player = document.getElementById(elementSuffix + "-player");
         this.container = document.getElementById(elementSuffix + "-container");
         this.isCustom = isCustom;
@@ -45,19 +45,20 @@ class Sound{
     }
     get breakTime(){
         if(this.randomized){
-            return document.getElementById(this.elementSuffix + "-break-time").value * 1000 * Math.random();
+            return Math.max(this.breakTimeElement.value * 1000 * Math.random(), this.player.duration * 1000);
         }else{
-            return document.getElementById(this.elementSuffix + "-break-time").value * 1000;
+            return Math.max(this.breakTimeElement.value * 1000, this.player.duration * 1000);
         }
     }
     playSound(){
         console.log("Attempting to play sound.");
         this.container.classList.add("active");
         
+        this.player.currentTime = 0;
+        this.player.play();
+
         this.timeoutId = setTimeout(() => {
             console.log(this);
-            this.player.currentTime = 0;
-            this.player.play();
 
             this.playSound()
         }, this.breakTime)
@@ -69,7 +70,7 @@ class Sound{
     }
     updateCustomSound(){
         if(this.isCustom){
-            let file = this.fileUpload.files[0];
+            let file = this.fileUpload.files[Math.floor(Math.random(this.fileUpload.files.length))];
             this.player.src = URL.createObjectURL(file);
         }
     }

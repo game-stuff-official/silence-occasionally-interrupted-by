@@ -3,10 +3,12 @@
 }
 :root{
     --button-border: 10px;
+    --button-depth: 10px;
+    --background-color: #ffffff;
 }
 body{
     margin-left: 0px;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
 }
 h3, h1{
     padding-left: 3%;
@@ -28,14 +30,17 @@ section.sound{
     transition-duration: 500ms;
     display:inline-block;
     /* width: 400px; */
+    box-shadow: 0px 0px 10px -5px #000000;
+
 }
 section.sound.active{
     border-color: #99ff99;
-    box-shadow: 0px 0px 5px 0px #ffffff;
 }
 section.sound:hover{
     border-left-color: #6666ff;
     background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px #000000;
+
 }
 section.active:hover{
     border-left-color: #88ff88;
@@ -47,57 +52,54 @@ section.sound > h2{
 section.sound:hover > h2{
     letter-spacing: 2px;
 }
+.button-group{
+    display: flex;
+    transform: translateY(calc(var(--button-depth) / -2));
+}
 button{
-    border-width: 2px;
+    border-width: 0px;
     border-style: solid;
+
+    padding:8px;
+    box-shadow: 0px px 0px 0px #999999;
+    transition-duration: 200ms;
+}
+button:active{
+    transform: translateY(var(--button-depth)) !important;
+    box-shadow: 0px 0px 0px 0px #999999 !important; 
+}
+button:nth-child(1){
+    transform: translateY(0px);
+    box-shadow: 0px var(--button-depth) 0px 0px #999999;
+
     border-top-left-radius: var(--button-border);
     border-bottom-left-radius: var(--button-border);
-    padding:8px;
-    border-right-style: none;
-    box-shadow: 0px var(--button-border) 0px 0px #999999;
-    transition-duration: 200ms;
-    border-top-right-radius: var(--button-border);
-
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
-button + button{
-    transform: translate(-5px, var(--button-border));
+button:nth-child(2){
+    transform: translateY(var(--button-depth));
     box-shadow: 0px 0px 0px 0px #999999;
 
-    border-right-style: solid;
-    border-left-style: none;
-
     border-top-left-radius: 0px;
-    border-bottom-left-radius: var(--button-border);
-
+    border-bottom-left-radius: 0px;
     border-top-right-radius: var(--button-border);
     border-bottom-right-radius: var(--button-border);
     
 }
+
+section.active button:nth-child(1){
+    transform: translateY(var(--button-depth));
+    box-shadow: 0px 0px 0px 0px #999999;
+}
+
+section.active button:nth-child(2){
+    transform: translateY(0px);
+    box-shadow: 0px var(--button-depth) 0px 0px #999999;
+}
+
 button:hover, input[type=file]::file-selector-button:hover{
     background-color: #ccccff;
-}
-button:active, section.active button{
-    /* background-color: #a9a9ff; */
-    transform: translate(0px, var(--button-border));
-    box-shadow: 0px 0px 0px 0px #999999;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: var(--button-border);
-    border-bottom-left-radius: var(--button-border);
-
-}
-button + button:active{
-    transform: translate(-5px, var(--button-border)) !important;
-    box-shadow: 0px 0px 0px 0px #999999 !important;
-    border-top-left-radius: 0px !important;
-    border-top-right-radius: var(--button-border) !important;
-    border-bottom-left-radius: var(--button-border) !important;
-}
-section.active button + button{
-    transform: translate(-5px, 0px);
-    box-shadow: 0px var(--button-border) 0px 0px #999999;
-    border-top-right-radius: var(--button-border);
-    border-top-left-radius: var(--button-border);
-    border-bottom-left-radius: 0px;
 }
 
 input[type=number]{
